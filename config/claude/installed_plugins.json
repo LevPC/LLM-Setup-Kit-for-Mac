@@ -4,7 +4,7 @@
     "claude-mem@thedotmack": [
       {
         "scope": "user",
-        "installPath": "/Users/parsamivehchi/.claude/plugins/cache/thedotmack/claude-mem/10.1.0",
+        "installPath": "/Users/$USER/.claude/plugins/cache/thedotmack/claude-mem/10.1.0",
         "version": "10.1.0",
         "installedAt": "2026-02-09T05:00:36.184Z",
         "lastUpdated": "2026-02-21T01:52:22.502Z",
@@ -14,7 +14,7 @@
     "superpowers@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/parsamivehchi/.claude/plugins/cache/claude-plugins-official/superpowers/4.3.1",
+        "installPath": "/Users/$USER/.claude/plugins/cache/claude-plugins-official/superpowers/4.3.1",
         "version": "4.3.1",
         "installedAt": "2026-02-15T20:30:47.382Z",
         "lastUpdated": "2026-02-23T06:15:16.309Z",
@@ -24,7 +24,7 @@
     "frontend-design@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/parsamivehchi/.claude/plugins/cache/claude-plugins-official/frontend-design/55b58ec6e564",
+        "installPath": "/Users/$USER/.claude/plugins/cache/claude-plugins-official/frontend-design/55b58ec6e564",
         "version": "55b58ec6e564",
         "installedAt": "2026-02-15T20:49:54.018Z",
         "lastUpdated": "2026-02-26T04:42:58.576Z",
@@ -34,7 +34,7 @@
     "context7@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/parsamivehchi/.claude/plugins/cache/claude-plugins-official/context7/55b58ec6e564",
+        "installPath": "/Users/$USER/.claude/plugins/cache/claude-plugins-official/context7/55b58ec6e564",
         "version": "55b58ec6e564",
         "installedAt": "2026-02-15T20:49:59.722Z",
         "lastUpdated": "2026-02-26T04:42:58.574Z",
@@ -44,7 +44,7 @@
     "code-review@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/parsamivehchi/.claude/plugins/cache/claude-plugins-official/code-review/55b58ec6e564",
+        "installPath": "/Users/$USER/.claude/plugins/cache/claude-plugins-official/code-review/55b58ec6e564",
         "version": "55b58ec6e564",
         "installedAt": "2026-02-15T20:50:05.288Z",
         "lastUpdated": "2026-02-26T04:42:58.575Z",
@@ -54,7 +54,7 @@
     "feature-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/parsamivehchi/.claude/plugins/cache/claude-plugins-official/feature-dev/55b58ec6e564",
+        "installPath": "/Users/$USER/.claude/plugins/cache/claude-plugins-official/feature-dev/55b58ec6e564",
         "version": "55b58ec6e564",
         "installedAt": "2026-02-15T20:50:10.166Z",
         "lastUpdated": "2026-02-26T04:42:58.579Z",
@@ -64,7 +64,7 @@
     "typescript-lsp@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/parsamivehchi/.claude/plugins/cache/claude-plugins-official/typescript-lsp/1.0.0",
+        "installPath": "/Users/$USER/.claude/plugins/cache/claude-plugins-official/typescript-lsp/1.0.0",
         "version": "1.0.0",
         "installedAt": "2026-02-15T20:50:14.503Z",
         "lastUpdated": "2026-02-15T20:50:14.503Z",
@@ -74,7 +74,7 @@
     "ralph-loop@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/parsamivehchi/.claude/plugins/cache/claude-plugins-official/ralph-loop/55b58ec6e564",
+        "installPath": "/Users/$USER/.claude/plugins/cache/claude-plugins-official/ralph-loop/55b58ec6e564",
         "version": "55b58ec6e564",
         "installedAt": "2026-02-15T20:50:22.833Z",
         "lastUpdated": "2026-02-26T04:42:58.580Z",
@@ -84,7 +84,7 @@
     "code-simplifier@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/parsamivehchi/.claude/plugins/cache/claude-plugins-official/code-simplifier/1.0.0",
+        "installPath": "/Users/$USER/.claude/plugins/cache/claude-plugins-official/code-simplifier/1.0.0",
         "version": "1.0.0",
         "installedAt": "2026-02-15T20:50:29.533Z",
         "lastUpdated": "2026-02-15T20:50:29.533Z",
@@ -94,7 +94,7 @@
     "swift-lsp@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/parsamivehchi/.claude/plugins/cache/claude-plugins-official/swift-lsp/1.0.0",
+        "installPath": "/Users/$USER/.claude/plugins/cache/claude-plugins-official/swift-lsp/1.0.0",
         "version": "1.0.0",
         "installedAt": "2026-02-15T20:50:58.853Z",
         "lastUpdated": "2026-02-15T20:50:58.853Z",
@@ -104,7 +104,7 @@
     "claude-md-management@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/parsamivehchi/.claude/plugins/cache/claude-plugins-official/claude-md-management/1.0.0",
+        "installPath": "/Users/$USER/.claude/plugins/cache/claude-plugins-official/claude-md-management/1.0.0",
         "version": "1.0.0",
         "installedAt": "2026-02-15T20:51:33.373Z",
         "lastUpdated": "2026-02-15T20:51:33.373Z",
