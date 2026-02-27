@@ -1,0 +1,122 @@
+# ============================================================================
+# .zshrc — Mac Setup for LLM Development
+# ============================================================================
+
+# --- PATH --------------------------------------------------------------------
+
+# Homebrew (Apple Silicon)
+if [[ -f /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# uv (Python package manager)
+if [[ -d "${HOME}/.local/bin" ]]; then
+    export PATH="${HOME}/.local/bin:${PATH}"
+fi
+
+# Bun
+if [[ -d "${HOME}/.bun/bin" ]]; then
+    export PATH="${HOME}/.bun/bin:${PATH}"
+    export BUN_INSTALL="${HOME}/.bun"
+fi
+
+# --- Prompt (Starship) -------------------------------------------------------
+
+if command -v starship &>/dev/null; then
+    eval "$(starship init zsh)"
+fi
+
+# --- Navigation (zoxide) -----------------------------------------------------
+
+if command -v zoxide &>/dev/null; then
+    eval "$(zoxide init zsh)"
+fi
+
+# --- fzf key bindings --------------------------------------------------------
+
+if command -v fzf &>/dev/null; then
+    source <(fzf --zsh) 2>/dev/null || true
+fi
+
+# --- Aliases -----------------------------------------------------------------
+
+# File listing (eza)
+if command -v eza &>/dev/null; then
+    alias ls="eza --icons"
+    alias ll="eza -l --icons --git"
+    alias la="eza -la --icons --git"
+    alias lt="eza --tree --level=2 --icons"
+else
+    alias ll="ls -lh"
+    alias la="ls -lAh"
+fi
+
+# Git shortcuts
+alias gs="git status"
+alias gc="git commit"
+alias gp="git push"
+alias gl="git log --oneline --graph -20"
+alias gd="git diff"
+alias ga="git add"
+alias gco="git checkout"
+alias gb="git branch"
+alias gpl="git pull"
+
+# Utilities
+alias cat="bat --paging=never"
+alias top="btop"
+alias grep="rg"
+alias find="fd"
+alias ..="cd .."
+alias ...="cd ../.."
+alias cls="clear"
+
+# Python
+alias py="python3"
+alias pip="uv pip"
+alias venv="uv venv"
+
+# Docker
+alias dc="docker compose"
+alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
+
+# --- Ollama ------------------------------------------------------------------
+
+export OLLAMA_MAX_LOADED_MODELS=1
+export OLLAMA_NUM_PARALLEL=1
+export OLLAMA_FLASH_ATTENTION=1
+export OLLAMA_HOST="0.0.0.0:11434"
+
+# --- History -----------------------------------------------------------------
+
+HISTSIZE=50000
+SAVEHIST=50000
+HISTFILE="${HOME}/.zsh_history"
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt SHARE_HISTORY
+setopt APPEND_HISTORY
+
+# --- Completion --------------------------------------------------------------
+
+autoload -Uz compinit
+compinit -C
+
+# Case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# --- Misc --------------------------------------------------------------------
+
+# Disable the "did you mean?" correction prompt
+unsetopt correct
+unsetopt correct_all
+
+# Allow comments in interactive shell
+setopt INTERACTIVE_COMMENTS
+
+# --- Local overrides ---------------------------------------------------------
+
+# Source a local file for machine-specific config that should not be committed
+if [[ -f "${HOME}/.zshrc.local" ]]; then
+    source "${HOME}/.zshrc.local"
+fi

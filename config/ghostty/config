@@ -1,0 +1,59 @@
+# ============================================================================
+# Ghostty Terminal Configuration
+# ============================================================================
+
+# --- Font --------------------------------------------------------------------
+font-family = "JetBrains Mono"
+font-size = 14
+font-thicken = true
+
+# --- Window ------------------------------------------------------------------
+window-padding-x = 12
+window-padding-y = 8
+window-padding-balance = true
+background-opacity = 0.95
+window-decoration = true
+window-save-state = always
+macos-titlebar-style = tabs
+
+# --- Cursor ------------------------------------------------------------------
+cursor-style = block
+cursor-style-blink = true
+
+# --- Theme (dark, matching LLM-BENCH palette) --------------------------------
+background = #0a0a0f
+foreground = #e0e0e0
+
+# Normal colors
+palette = 0=#1a1a2e
+palette = 1=#e74c6f
+palette = 2=#06d6a0
+palette = 3=#ffd166
+palette = 4=#6c63ff
+palette = 5=#c77dff
+palette = 6=#4ecdc4
+palette = 7=#e0e0e0
+
+# Bright colors
+palette = 8=#3a3a5e
+palette = 9=#ff6b8a
+palette = 10=#2eecb8
+palette = 11=#ffe08a
+palette = 12=#8b83ff
+palette = 13=#d9a3ff
+palette = 14=#6ee7de
+palette = 15=#ffffff
+
+# Selection
+selection-foreground = #ffffff
+selection-background = #6c63ff
+
+# --- Behavior ----------------------------------------------------------------
+copy-on-select = clipboard
+mouse-hide-while-typing = true
+scrollback-limit = 100000
+confirm-close-surface = false
+
+# --- Shell -------------------------------------------------------------------
+shell-integration = zsh
+shell-integration-features = cursor,sudo,title

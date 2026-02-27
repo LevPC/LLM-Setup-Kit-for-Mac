@@ -1,0 +1,4 @@
+backups/
+audit_report_*.txt
+.DS_Store
+*.enc
