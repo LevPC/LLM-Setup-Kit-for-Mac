@@ -122,7 +122,7 @@ git clone <repo> ~/mac-setup
 - **VS Code**: extension list (86), settings, snippets
 - **Cursor**: extension list (86), settings, keybindings, snippets
 - **Raycast**: preferences plist
-- **Project data**: LLM-BENCH artifacts (data, reports, comparison site)
+- **Project data**: tps.sh (LLM-BENCH) artifacts (data, reports, comparison site)
 - **Secrets**: .env files + SSH keys (AES-256 encrypted)
 - **System**: brew dump, mas list, app inventory, dock/finder plists
 
@@ -168,4 +168,4 @@ mac-setup/
 
 ## Related
 
-**[LLM-BENCH](https://github.com/parsamivehchi/LLM-BENCH)** — Local vs Cloud LLM benchmarking toolkit built on this setup. 7 models, 147 tests, 21 prompts comparing Ollama and Claude API on Apple Silicon.
+**[tps.sh](https://tps.sh)** — Tokens Per Second LLM benchmark built on this setup. 7 models, 147 tests, 21 prompts comparing Ollama and Claude API on Apple Silicon.
