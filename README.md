@@ -1,10 +1,21 @@
 # LLM Setup Kit for Mac
 
-One-command bootstrap + full migration kit for local LLM development on macOS (Apple Silicon).
+**One-command bootstrap + full migration kit for local LLM development on macOS (Apple Silicon)**
+
+![Shell](https://img.shields.io/badge/shell-bash-green?logo=gnubash&logoColor=white)
+![Phases](https://img.shields.io/badge/phases-17-blue)
+![Packages](https://img.shields.io/badge/packages-115-cyan)
+![Apple Silicon](https://img.shields.io/badge/Apple_Silicon-recommended-black?logo=apple)
 
 Goes beyond dotfiles — 17-phase automated setup, config backup/restore with encrypted secrets, pre-migration audit, and post-setup verification.
 
-**[View the docs site](https://parsamivehchi.github.io/llm-setup-kit-for-mac/)**
+**[View the live site](https://parsamivehchi.github.io/llm-setup-kit-for-mac/)**
+
+<p align="center">
+  <a href="https://parsamivehchi.github.io/llm-setup-kit-for-mac/">
+    <img src="docs/assets/screenshot.png" alt="LLM Setup Kit Landing Page" width="720">
+  </a>
+</p>
 
 ---
 
@@ -154,3 +165,7 @@ mac-setup/
 - Internet connection
 - Admin privileges (Homebrew, macOS defaults)
 - App Store sign-in (for mas apps)
+
+## Related
+
+**[LLM-BENCH](https://github.com/parsamivehchi/LLM-BENCH)** — Local vs Cloud LLM benchmarking toolkit built on this setup. 7 models, 147 tests, 21 prompts comparing Ollama and Claude API on Apple Silicon.
