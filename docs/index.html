@@ -23,6 +23,63 @@
             --card-bg: #0a0a0a;
             --border-color: #333;
             --border-dim: #1a1a1a;
+            --scanline-opacity: 0.03;
+            --overlay-white: rgba(255,255,255,0.03);
+            --table-header-bg: #111;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f5f5f5;
+            --sidebar-bg: #fff;
+            --text-color: #1a1a1a;
+            --text-dim: #555;
+            --text-dimmer: #999;
+            --neon-pink: #cc00cc;
+            --neon-blue: #0099aa;
+            --neon-green: #008800;
+            --neon-yellow: #aa8800;
+            --card-bg: #fff;
+            --border-color: #d0d0d0;
+            --border-dim: #e5e5e5;
+            --scanline-opacity: 0;
+            --overlay-white: rgba(0,0,0,0.03);
+            --table-header-bg: #e8e8e8;
+        }
+
+        [data-theme="neon"] {
+            --bg-color: #0a0015;
+            --sidebar-bg: #050010;
+            --text-color: #fff;
+            --text-dim: #c0c0c0;
+            --text-dimmer: #808080;
+            --neon-pink: #ff33ff;
+            --neon-blue: #33ffff;
+            --neon-green: #33ff33;
+            --neon-yellow: #ffff33;
+            --card-bg: #0f0020;
+            --border-color: #6600aa;
+            --border-dim: #330066;
+            --scanline-opacity: 0.05;
+            --overlay-white: rgba(255,255,255,0.04);
+            --table-header-bg: #1a0030;
+        }
+
+        [data-theme="solarized"] {
+            --bg-color: #002b36;
+            --sidebar-bg: #073642;
+            --text-color: #839496;
+            --text-dim: #657b83;
+            --text-dimmer: #586e75;
+            --neon-pink: #d33682;
+            --neon-blue: #268bd2;
+            --neon-green: #859900;
+            --neon-yellow: #b58900;
+            --card-bg: #073642;
+            --border-color: #586e75;
+            --border-dim: #073642;
+            --scanline-opacity: 0;
+            --overlay-white: rgba(255,255,255,0.03);
+            --table-header-bg: #0a4050;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,7 +87,7 @@
         html {
             scroll-behavior: smooth;
             scrollbar-width: thin;
-            scrollbar-color: #333 #050505;
+            scrollbar-color: var(--border-color) var(--bg-color);
         }
 
         body {
@@ -45,23 +102,18 @@
         body::after {
             content: '';
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(0, 0, 0, 0.03) 2px,
-                rgba(0, 0, 0, 0.03) 4px
-            );
+            inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 4px);
             pointer-events: none;
             z-index: 9999;
+            opacity: var(--scanline-opacity);
         }
 
         /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg-color); }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-dimmer); }
 
         /* Layout */
         .app-container {
@@ -96,8 +148,8 @@
         }
 
         .sidebar-brand .version {
-            font-size: 0.65rem;
-            color: #444;
+            font-size: 0.75rem;
+            color: var(--text-dimmer);
         }
 
         .system-status {
@@ -130,7 +182,7 @@
         }
 
         .nav-label {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: var(--neon-blue);
             letter-spacing: 2px;
             margin-bottom: 12px;
@@ -148,7 +200,7 @@
         .sidebar-nav a {
             color: var(--text-dim);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             padding: 6px 10px;
             display: block;
             border-left: 2px solid transparent;
@@ -156,7 +208,7 @@
         }
 
         .sidebar-nav a:hover {
-            color: #fff;
+            color: var(--text-color);
             border-left-color: var(--neon-pink);
             background: rgba(255, 0, 255, 0.03);
             text-shadow: 0 0 5px rgba(255, 0, 255, 0.3);
@@ -182,17 +234,17 @@
         .stat-row {
             display: flex;
             justify-content: space-between;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             margin-bottom: 6px;
         }
 
-        .stat-row .label { color: #555; }
+        .stat-row .label { color: var(--text-dimmer); }
         .stat-row .value { color: var(--neon-green); }
 
         .sidebar-footer {
             margin-top: 20px;
             font-size: 0.6rem;
-            color: #333;
+            color: var(--text-dimmer);
             text-align: center;
         }
 
@@ -209,7 +261,7 @@
         }
 
         .section-label {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: var(--neon-blue);
             letter-spacing: 3px;
             margin-bottom: 10px;
@@ -217,9 +269,9 @@
         }
 
         .section-title {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--text-color);
             margin-bottom: 30px;
         }
 
@@ -260,9 +312,9 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.7rem, 6.5vw, 4.8rem);
             font-weight: 700;
-            color: #fff;
+            color: var(--text-color);
             line-height: 1.1;
             margin-bottom: 8px;
             letter-spacing: -1px;
@@ -309,7 +361,7 @@
         }
 
         .badge {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             padding: 5px 12px;
             border: 1px solid var(--border-color);
             color: var(--text-dim);
@@ -339,13 +391,14 @@
         .overview-item:nth-child(3) { border-left-color: var(--neon-green); background: rgba(0, 255, 0, 0.02); }
 
         .overview-item .cmd {
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             color: var(--neon-yellow);
             margin-bottom: 8px;
+            font-weight: 500;
         }
 
         .overview-item p {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-dim);
             line-height: 1.5;
         }
@@ -378,7 +431,7 @@
 
         .tool-card:hover {
             transform: translateY(-2px);
-            background: #000;
+            background: var(--bg-color);
         }
 
         .tool-card:nth-child(6n+1):hover { border-color: var(--neon-pink); box-shadow: 0 0 20px rgba(255, 0, 255, 0.15); }
@@ -437,12 +490,12 @@
         .tool-name {
             font-size: 1rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--text-color);
             transition: all 0.25s;
         }
 
         .tool-desc {
-            font-size: 0.8rem;
+            font-size: 0.83rem;
             color: var(--text-dim);
             margin-bottom: 16px;
             line-height: 1.5;
@@ -455,7 +508,7 @@
         }
 
         .tag {
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             padding: 3px 8px;
             border: 1px solid var(--border-color);
             color: var(--text-dimmer);
@@ -511,7 +564,7 @@
         }
 
         .workflow-label {
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             letter-spacing: 2px;
             margin-bottom: 6px;
         }
@@ -520,24 +573,25 @@
         .workflow-phase:nth-child(even) .workflow-label { color: var(--neon-blue); }
 
         .workflow-title {
-            font-size: 0.95rem;
-            color: #fff;
+            font-size: 1.05rem;
+            color: var(--text-color);
             font-weight: 700;
             margin-bottom: 8px;
         }
 
         .workflow-cmd {
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             color: var(--neon-green);
             background: rgba(0, 255, 0, 0.03);
             border: 1px solid rgba(0, 255, 0, 0.1);
             padding: 8px 14px;
             display: inline-block;
             margin-bottom: 6px;
+            font-weight: 500;
         }
 
         .workflow-note {
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             color: var(--text-dimmer);
         }
 
@@ -573,14 +627,14 @@
         .feature:nth-child(6n+6) .feature-icon { color: var(--neon-blue); }
 
         .feature h4 {
-            font-size: 0.8rem;
-            color: #fff;
+            font-size: 0.9rem;
+            color: var(--text-color);
             margin-bottom: 6px;
-            font-weight: 500;
+            font-weight: 700;
         }
 
         .feature p {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: var(--text-dimmer);
             line-height: 1.5;
         }
@@ -625,13 +679,14 @@
         .stack-item:nth-child(6n+6) .stack-icon { color: var(--neon-blue); border-color: rgba(0, 255, 255, 0.3); }
 
         .stack-info h4 {
-            font-size: 0.85rem;
-            color: #fff;
+            font-size: 0.95rem;
+            color: var(--text-color);
             margin-bottom: 2px;
+            font-weight: 700;
         }
 
         .stack-info p {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: var(--text-dimmer);
         }
 
@@ -651,7 +706,7 @@
         }
 
         .cta-cmd {
-            font-size: 0.9rem;
+            font-size: 1.0rem;
             color: var(--neon-green);
             background: rgba(0, 255, 0, 0.03);
             border: 1px solid rgba(0, 255, 0, 0.15);
@@ -661,6 +716,7 @@
             cursor: pointer;
             transition: all 0.2s;
             position: relative;
+            font-weight: 500;
         }
 
         .cta-cmd:hover {
@@ -685,7 +741,7 @@
             display: inline-block;
             color: var(--neon-blue);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             padding: 10px 24px;
             border: 1px solid rgba(0, 255, 255, 0.3);
             transition: all 0.2s;
@@ -705,12 +761,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.65rem;
-            color: #333;
+            font-size: 0.75rem;
+            color: var(--text-dimmer);
         }
 
         footer a {
-            color: #555;
+            color: var(--text-dim);
             text-decoration: none;
             transition: color 0.2s;
         }
@@ -775,6 +831,13 @@
             .hero-badges { gap: 8px; }
         }
     </style>
+<script>
+(function(){
+  var t = localStorage.getItem('llm-theme');
+  if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  if (t !== 'dark') document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
 </head>
 <body>
     <div class="app-container">
@@ -828,6 +891,12 @@
             </div>
 
             <div class="sidebar-footer">
+      <div class="theme-switcher" style="display:flex;gap:4px;margin-bottom:8px;">
+        <button onclick="setTheme('dark')" title="Dark" style="all:unset;cursor:pointer;font-family:'Roboto Mono',monospace;font-size:0.65rem;padding:4px 8px;border:1px solid var(--border-color);color:var(--text-dim);border-radius:3px;transition:all 0.2s;" data-theme-btn="dark">D</button>
+        <button onclick="setTheme('light')" title="Light" style="all:unset;cursor:pointer;font-family:'Roboto Mono',monospace;font-size:0.65rem;padding:4px 8px;border:1px solid var(--border-color);color:var(--text-dim);border-radius:3px;transition:all 0.2s;" data-theme-btn="light">L</button>
+        <button onclick="setTheme('neon')" title="Neon" style="all:unset;cursor:pointer;font-family:'Roboto Mono',monospace;font-size:0.65rem;padding:4px 8px;border:1px solid var(--border-color);color:var(--text-dim);border-radius:3px;transition:all 0.2s;" data-theme-btn="neon">N</button>
+        <button onclick="setTheme('solarized')" title="Solarized" style="all:unset;cursor:pointer;font-family:'Roboto Mono',monospace;font-size:0.65rem;padding:4px 8px;border:1px solid var(--border-color);color:var(--text-dim);border-radius:3px;transition:all 0.2s;" data-theme-btn="solarized">S</button>
+      </div>
                 BUILT FOR APPLE SILICON
             </div>
         </aside>
@@ -1240,6 +1309,32 @@
             });
         }, { threshold: 0.1 });
         reveals.forEach(el => observer.observe(el));
+
+// Theme switching
+function setTheme(theme) {
+  if (theme === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+  localStorage.setItem('llm-theme', theme);
+  updateThemeButtons(theme);
+}
+
+function updateThemeButtons(active) {
+  document.querySelectorAll('[data-theme-btn]').forEach(function(btn) {
+    var isActive = btn.getAttribute('data-theme-btn') === active;
+    btn.style.background = isActive ? 'var(--neon-blue)' : 'transparent';
+    btn.style.color = isActive ? 'var(--bg-color)' : 'var(--text-dim)';
+    btn.style.borderColor = isActive ? 'var(--neon-blue)' : 'var(--border-color)';
+  });
+}
+
+// Initialize theme buttons
+(function() {
+  var t = localStorage.getItem('llm-theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  updateThemeButtons(t);
+})();
     </script>
 </body>
 </html>
