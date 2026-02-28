@@ -1,4 +1,4 @@
-# LLM Setup Kit for Mac
+# LLM-Setup-Kit-for-Mac
 
 **One-command bootstrap + full migration kit for local LLM development on macOS (Apple Silicon)**
 
@@ -9,11 +9,11 @@
 
 Goes beyond dotfiles — 17-phase automated setup, config backup/restore with encrypted secrets, pre-migration audit, and post-setup verification.
 
-**[View the live site](https://parsamivehchi.github.io/llm-setup-kit-for-mac/)**
+**[View the live site](https://parsamivehchi.github.io/LLM-Setup-Kit-for-Mac/)**
 
 <p align="center">
   <a href="https://parsamivehchi.github.io/llm-setup-kit-for-mac/">
-    <img src="docs/assets/screenshot.png" alt="LLM Setup Kit Landing Page" width="720">
+    <img src="docs/assets/screenshot.png" alt="LLM-Setup-Kit-for-Mac Landing Page" width="720">
   </a>
 </p>
 
@@ -22,7 +22,7 @@ Goes beyond dotfiles — 17-phase automated setup, config backup/restore with en
 ## Quick Start
 
 ```bash
-git clone https://github.com/parsamivehchi/llm-setup-kit-for-mac.git ~/mac-setup
+git clone https://github.com/parsamivehchi/LLM-Setup-Kit-for-Mac.git ~/mac-setup
 cd ~/mac-setup
 ./setup.sh
 ```
